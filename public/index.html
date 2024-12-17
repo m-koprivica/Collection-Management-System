@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Database Application</title>
+</head>
+<body>
+
+    <h2>Register</h2>
+    <form id="registerCollector">
+        Name: <input type="text" id="registerName" placeholder="Enter Name" maxlength="20" required> <br><br>
+        E-Mail: <input type="text" id="registerEmail" placeholder="Enter E-Mail" required> <br><br>
+        Password: <input type="password" id="registerPassword" placeholder="Enter Password" required> <br><br>
+
+        <button type="submit"> Sign Up </button> <br>
+    </form>
+    <div id="registerCollectorResultMsg"></div>
+
+    <br><hr></br>
+
+    <h2>Login</h2>
+    <form id="loginCollector">
+        E-Mail: <input type="text" id="loginEmail" placeholder="Enter E-Mail" required> <br><br>
+        Password: <input type="password" id="loginPassword" placeholder="Enter Password" required> <br><br>
+
+        <button type="submit"> Login </button> <br>
+    </form>
+    <div id="loginCollectorResultMsg"></div>
+
+     <br><hr></br>
+
+
+
+
+    <script src="accounts.js"></script>
+</body>
+</html>

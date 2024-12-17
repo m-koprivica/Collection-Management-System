@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Database Application</title>
+</head>
+<body>
+    <h1> Collection Management System</h1>
+
+    <button id="logoutCollector"> Logout </button>
+    <div id="logoutCollectorResultMsg"></div>
+
+    <br><hr><br>
+
+    <h2>Your Collections</h2>
+    <table id="collection" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Count Items In Each Collection</h2>
+    <button id="countItemsInCollections">Count Items</button>
+    <h2>Your Collections Item Count</h2>
+    <table id="itemCountTable">
+        <thead>
+            <tr>
+                <th>Collection Name</th>
+                <th>Item Count</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <h2>View Total Valuation of All Your Collections!</h2>
+    <p>View the valuation of all your collections that contain at least one appraised item.
+        For items with several appraisals, the average is used.
+    </p>
+    <form id="collectionValuationForm">
+        <button type="submit"> View Valuations </button>
+    </form>
+    <div id="collectionValuationResultMsg"></div>
+    <table id="collectionValuationTable" border="1">
+        <thead>
+            <tr>
+                <th>Collection ID</th>
+                <th>Collection Name</th>
+                <th>Valuation (CAD$)</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Delete Collection</h2>
+    <form id="deleteCollectionForm">
+        Collection Name:
+        <input type="text" id="deleteCollectionName" placeholder="Enter Collection Name" required>
+        <br><br>
+        <button type="submit">Delete Collection</button>
+        <br>
+    </form>
+    <div id="deleteCollectionResultMsg">
+    </div>
+
+    <h2>View Items in Collection</h2>
+    <form id="viewItemsInCollectionForm">
+        Collection Name:
+        <input type="text" id="viewItemsCollectionName" placeholder="Enter Collection Name" required>
+        <br><br>
+        <button type="submit">View Items</button>
+        <br>
+    </form>
+    <table id="itemsTable">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Series Name</th>
+                <th>Release Date</th>
+                <th>Manufacturer</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <h2>Add a Trading Card!</h2>
+    <form id="tradingCardForm">
+        <label for="card_athlete">Athlete:</label>
+        <input type="text" name="athlete" id="card_athlete" required>
+        <br>
+    
+        <label for="card_cardVariation">Card Variation:</label>
+        <input type="text" name="cardVariation" id="card_cardVariation" required>
+        <br>
+    
+        <label for="card_sport">Sport:</label>
+        <input type="text" name="sport" id="card_sport" required>
+        <br>
+    
+        <label for="card_itemName">Item Name:</label>
+        <input type="text" name="itemName" id="card_itemName" required>
+        <br>
+
+        <label for="card_prevCollector">Previous Collector ID:</label>
+        <input type="text" name="prevCollector" id="card_prevCollector" required>
+        <br>
+    
+        <label for="card_seriesName">Series Name:</label>
+        <input type="text" name="seriesName" id="card_seriesName" required>
+        <br>
+    
+        <label for="card_releaseDate">Release Date (YYYY-MM-DD):</label>
+        <input type="date" name="releaseDate" id="card_releaseDate" required>
+        <br>
+    
+        <label for="card_manufacturerName">Manufacturer Name:</label>
+        <input type="text" name="manufacturerName" id="card_manufacturerName" required>
+        <br>
+    
+        <label for="card_country">Country:</label>
+        <input type="text" name="country" id="card_country" required>
+        <br><br>
+
+        <button type="submit">Submit Trading Card</button>
+    </form>
+    
+    <br><hr><br>
+
+    <h2>Add a Coin!</h2>
+    <form id="coinForm"> 
+        <label for="coin_currency">Currency:</label>
+        <input type="text" name="currency" id="coin_currency" required>
+        <br>
+
+        <label for="coin_denomination">Denomination:</label>
+        <input type="text" name="denomination" id="coin_denomination" required>
+        <br>
+    
+        <label for="coin_itemName">Item Name:</label>
+        <input type="text" name="itemName" id="coin_itemName" required>
+        <br>
+
+        <label for="coin_prevCollector">Previous Collector ID:</label>
+        <input type="text" name="prevCollector" id="coin_prevCollector" required>
+        <br>
+
+        <label for="coin_seriesName">Series Name:</label>
+        <input type="text" name="seriesName" id="coin_seriesName" required>
+        <br>
+
+        <label for="coin_releaseDate">Release Date (YYYY-MM-DD):</label>
+        <input type="date" name="releaseDate" id="coin_releaseDate" required>
+        <br>
+
+        <label for="coin_manufacturerName">Manufacturer Name:</label>
+        <input type="text" name="manufacturerName" id="coin_manufacturerName" required>
+        <br>
+
+        <label for="coin_country">Country:</label>
+        <input type="text" name="country" id="coin_country" required>
+        <br><br>
+    
+        <button type="submit">Submit Coin</button>
+    </form>
+    
+    <br><hr><br>
+
+    <h2>Enter a date and recieve all Series made after that date!</h2>
+    <form id="seriesAfterDateForm">
+        <label for="series_releaseDate">Release Date (YYYY-MM-DD):</label>
+        <input type="date" name="releaseDate" id="series_releaseDate" required>
+        <br><br>
+
+        <button type="submit">Submit Date</button>
+    </form>
+
+    <br><br>
+
+    <table id="seriesTable" border="1" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>seriesName</th>
+                <th>ReleaseDate</th>
+                <th>editionNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <h2>Enter the minimum number of items to find auction houses!</h2>
+    <form id="auctionHousesForm">
+        <label for="minItems">Minimum Number of Items:</label>
+        <input type="number" name="minItems" id="minItems" required min="1">
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <br><br>
+
+    <table id="auctionHousesTable" border="1" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Auction House</th>
+                <th>Total Items</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <h2>Update Item</h2>
+    <p>You may only update an item if it is in at least one of your collections.
+        Make previous collector ID to be less than 1 if you want to remove the associated history from the item.
+    </p>
+    <form id="updateItemFromCollection">
+        Item ID: <input type="number" id="updateItemID" placeholder="Enter item ID" required> <br><br>
+        New Name: <input type="text" id="updateNewItemName" placeholder="Enter new name" maxlength="20"> <br><br>
+        New Previous Collector's ID: <input type="number" id="updatePrevCollectorID" placeholder="Enter new previous collector ID"> <br><br>
+
+        <button type="submit"> Update </button> <br>
+    </form>
+    <div id="updateItemResultMsg"></div>
+
+    <br><hr><br>
+    <h2>View History Details</h2>
+    <form id="projectHistoryForm">
+        <label> <input type="checkbox" name="projColumns" id="projectPrevCollectorID" value="prevCollectorID"> Previous Collector ID </label><br>
+        <label> <input type="checkbox" name="projColumns" id="projectPrevCollectorName" value="prevCollectorName"> Previous Collector Name </label><br>
+        <label> <input type="checkbox" name="projColumns" id="projectAcquireDate" value="acquireDate"> Acquire Date </label><br>
+        <label> <input type="checkbox" name="projColumns" id="projectSellDate" value="sellDate"> Sell Date </label><br>
+        <label> <input type="checkbox" name="projColumns" id="projectPriceSold" value="priceSold"> Price Sold </label><br>
+    
+        <br> <button type="submit"> View </button> <br>
+    </form>
+    <br>
+    <table id="projectionTable" border="1">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+
+    <h2>View Auctions that have all the items as a collection</h2>
+    <form id="auctionItemCollectionForm">
+        Collection ID: <input type="number" id="auctionCollectionItemID" placeholder="Enter collection ID" required> <br><br>
+        <button type="submit"> View Auctions </button>
+    </form>
+    <div id="auctionItemCollectionResultMsg"></div>
+    <table id="auctionItemCollectionTable" border="1">
+        <thead>
+            <tr>
+                <th>Auction ID</th>
+                <th>Auction House Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br><hr>
+
+    <!-- ===================================================================================== -->
+    <!-- Display the current status of the database connection. 
+        !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+    -->
+    <h4>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <!-- <br><hr><br> ========================================================================= -->
+    <hr>
+    <!-- ===================================================================================== -->
+    <!-- External JavaScript file that contains the functionality/logic for the operations above. -->
+    <script src="scripts.js"></script>
+</body>
+</html>
